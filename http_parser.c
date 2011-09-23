@@ -1629,8 +1629,8 @@ size_t http_parser_execute (http_parser *parser,
 
       case s_body_identity:
       {
-        uint64_t to_read = MIN(parser->content_length,
-                               (uint64_t) ((data + len) - p));
+        size_t to_read = MIN(parser->content_length,
+                               (size_t) ((data + len) - p));
 
         assert(parser->content_length != 0
             && parser->content_length != ULLONG_MAX);
@@ -1757,8 +1757,8 @@ size_t http_parser_execute (http_parser *parser,
 
       case s_chunk_data:
       {
-        uint64_t to_read = MIN(parser->content_length,
-                               (uint64_t) ((data + len) - p));
+        size_t to_read = MIN(parser->content_length,
+                               (size_t) ((data + len) - p));
 
         assert(parser->flags & F_CHUNKED);
         assert(parser->content_length != 0

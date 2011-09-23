@@ -208,7 +208,7 @@ struct http_parser {
   unsigned char header_state; /* enum header_state from http_parser.c */
   unsigned char index;        /* index into current matcher */
 
-  uint32_t nread;          /* # bytes read in various scenarios */
+  size_t nread;            /* # bytes read in various scenarios */
   uint64_t content_length; /* # bytes in body (0 if no Content-Length header) */
 
   /** READ-ONLY **/
